@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Summary{% endblock %}
+{% block content %}
+<h1>Spending by category</h1>
+{% if rows %}
+<ul class="bars">
+    {% for cat, amt in rows %}
+    <li>
+        <div class="bar-head"><span>{{ cat }}</span><span>₹{{ '%.2f' % amt }}</span></div>
+        <div class="bar"><div class="fill" style="width: {{ (amt / grand_total * 100)|round(1) }}%"></div></div>
+    </li>
+    {% endfor %}
+</ul>
+<p class="grand" id="grand-total">Total: ₹{{ '%.2f' % grand_total }}</p>
+{% else %}
+<p class="empty">Nothing to summarise yet. <a href="{{ url_for('add') }}">Add an expense</a> and it will show up here.</p>
+{% endif %}
+{% endblock %}
