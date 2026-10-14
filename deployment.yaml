@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: expense-tracker
-          image: likithavajinepalli/expense-tracker:latest
+          image: likithavajinepalli/a2casestudy:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8003
