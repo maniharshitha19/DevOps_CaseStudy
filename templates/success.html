@@ -5,7 +5,7 @@
     <p id="message">Expense saved: {{ title }} for ₹{{ '%.2f' % amount }} under {{ category }}.</p>
     <p>
         <a href="{{ url_for('add') }}">Add another</a>
-        <a href="{{ url_for('index') }}">View all of the expenses</a>
+        <a href="{{ url_for('index') }}">View all expenses</a>
     </p>
 </div>
 {% endblock %}
