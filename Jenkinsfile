@@ -10,6 +10,14 @@ pipeline {
     }
 
     stages {
+        stage('Check Environment') {
+    steps {
+        bat 'whoami'
+        bat 'echo %PATH%'
+        bat 'where python'
+        bat 'where pip'
+    }
+}
         stage('Checkout Code') {
             steps {
                 echo "Pulling latest code from Git"
