@@ -4,9 +4,9 @@ pipeline {
     environment {
         IMAGE_NAME = "expense-tracker"
         IMAGE_TAG  = "latest"
-        REPO_NAME  = "a2casestudy"
-        USER_NAME  = "likithavajinepalli"
-        DOCKERHUB_IMAGE = "likithavajinepalli/a2casestudy:latest"
+        REPO_NAME  = "casestudy"
+        USER_NAME  = "maniharshitha19"
+        DOCKERHUB_IMAGE = "maniharshitha19/casestudy:latest"
     }
 
     stages {
@@ -36,22 +36,22 @@ pipeline {
 
         stage('Tag Docker Image') {
             steps {
-                echo "Tagging expense-tracker:latest as likithavajinepalli/a2casestudy:latest"
-                bat "docker tag expense-tracker:latest likithavajinepalli/a2casestudy:latest"
+                echo "Tagging expense-tracker:latest as maniharshitha19/casestudy:latest"
+                bat "docker tag expense-tracker:latest maniharshitha19/casestudy:latest"
             }
         }
 
         stage('Docker Login') {
             steps {
                 echo "Logging in to Docker Hub..."
-                bat 'docker login -u likithavajinepalli -p Likkibala@L?1010'
+                bat 'docker login -u maniharshitha19 -p 832813215@mani'
             }
         }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
-                echo "Pushing likithavajinepalli/a2casestudy:latest to Docker Hub..."
-                bat "docker push likithavajinepalli/a2casestudy:latest"
+                echo "Pushing maniharshitha19/casestudy:latest to Docker Hub..."
+                bat "docker push maniharshitha19/casestudy:latest"
             }
         }
 
@@ -67,7 +67,7 @@ pipeline {
 
     post {
         success {
-            echo "Pipeline completed successfully! Deployed likithavajinepalli/a2casestudy:latest"
+            echo "Pipeline completed successfully! Deployed maniharshitha19/casestudy:latest"
         }
         failure {
             echo 'Pipeline failed. Please check the logs.'
