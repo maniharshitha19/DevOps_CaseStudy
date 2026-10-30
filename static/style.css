@@ -1,0 +1,60 @@
+:root {
+    --bg: #eef2f5;
+    --surface: #ffffff;
+    --ink: #1f2a37;
+    --muted: #5b6878;
+    --line: #d5dde5;
+    --money: #2f7d6d;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+.topbar {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: space-between; align-items: center;
+    padding: 14px 24px; background: var(--ink); color: #fff;
+}
+.brand { font-weight: 700; font-size: 1.1rem; }
+.topbar nav a { color: #cfe3dd; text-decoration: none; margin-left: 18px; }
+.topbar nav a:hover, .topbar nav a:focus { color: #fff; text-decoration: underline; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 48px; }
+h1 { font-size: 1.5rem; margin: 24px 0 14px; }
+a { color: var(--money); }
+
+.total { border-left: 6px solid var(--money); background: var(--surface); padding: 16px 20px; }
+.total-label { margin: 0; color: var(--muted); }
+.total-amount { margin: 0; font-size: 2.6rem; font-weight: 700; color: var(--money); font-variant-numeric: tabular-nums; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); }
+th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+th { color: var(--muted); font-weight: 600; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.tag { background: var(--bg); padding: 2px 8px; border-radius: 10px; font-size: .9rem; }
+
+.card-form { display: grid; gap: 6px; background: var(--surface); padding: 22px; max-width: 420px; }
+.card-form label { font-weight: 600; margin-top: 8px; }
+.card-form input, .card-form select {
+    padding: 9px 10px; font: inherit; border: 1px solid var(--line); border-radius: 4px;
+}
+.card-form input:focus, .card-form select:focus { outline: 2px solid var(--money); outline-offset: 1px; }
+#sb {
+    margin-top: 16px; background: var(--money); color: #fff; border: none;
+    padding: 11px; font-weight: 600; cursor: pointer;
+}
+
+.notice { background: var(--surface); border-left: 6px solid var(--money); padding: 20px; margin-top: 24px; }
+.notice a { margin-right: 18px; }
+.empty { color: var(--muted); }
+
+.bars { list-style: none; padding: 0; }
+.bars li { margin-bottom: 14px; }
+.bar-head { display: flex; justify-content: space-between; font-variant-numeric: tabular-nums; }
+.bar { background: var(--line); height: 12px; }
+.fill { background: var(--money); height: 100%; }
+.grand { font-weight: 700; font-size: 1.2rem; }

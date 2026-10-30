@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Add expense{% endblock %}
+{% block head %}
+<script>
+    function validateForm() {
+        var title = document.getElementById("title").value.trim();
+        var amount = document.getElementById("amount").value;
+        var category = document.getElementById("category").value;
+        if (title === "") {
+            alert("Title cannot be empty");
+            return false;
+        }
+        if (amount === "" || isNaN(amount) || Number(amount) <= 0) {
+            alert("Amount must be greater than 0");
+            return false;
+        }
+        if (category === "") {
+            alert("Please select a category");
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}
+{% block content %}
+<h1>Add expense</h1>
+<form action="/submit" method="post" onsubmit="return validateForm()" class="card-form">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="e.g. Lunch at canteen">
+
+    <label for="amount">Amount (₹)</label>
+    <input type="text" id="amount" name="amount" inputmode="decimal" placeholder="0.00">
+
+    <label for="category">Category</label>
+    <select id="category" name="category">
+        <option value="">Choose a category</option>
+        {% for c in categories %}
+        <option value="{{ c }}">{{ c }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" value="{{ today }}">
+
+    <input type="submit" value="Save expense" id="sb" name="sb">
+</form>
+{% endblock %}
