@@ -26,14 +26,17 @@ pipeline {
         }
 
         stage('Selenium Tests with pytest') {
-            steps {
-                echo "Running Selenium Tests with pytest"
-                bat 'pip install -r requirements.txt'
-                bat 'start /B python app.py'
-                bat 'ping 127.0.0.1 -n 5 > nul'
-                bat 'python -m pytest -v tests/test_expense.py'
-            }
-        }
+    steps {
+        echo 'Running Selenium Tests with pytest'
+
+        bat 'python --version'
+        bat 'python -m pip --version'
+
+        bat 'python -m pip install -r requirements.txt'
+
+        bat 'python -m pytest'
+    }
+}
 
         stage('Build Docker Image') {
             steps {
