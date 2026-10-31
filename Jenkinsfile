@@ -24,7 +24,7 @@ pipeline {
 
         bat 'python -m pip install -r requirements.txt'
         bat 'start /B python app.py'
-        bat 'ping 127.0.0.1 -n 5 > nul''
+        bat 'ping 127.0.0.1 -n 5 > nul'
 
         bat 'python -m pytest -v'
     }
