@@ -10,14 +10,6 @@ pipeline {
     }
 
     stages {
-        stage('Check Environment') {
-    steps {
-        bat 'whoami'
-        bat 'echo %PATH%'
-        bat 'where python'
-        bat 'where pip'
-    }
-}
         stage('Checkout Code') {
             steps {
                 echo "Pulling latest code from Git"
@@ -25,16 +17,16 @@ pipeline {
             }
         }
 
+
         stage('Selenium Tests with pytest') {
     steps {
         echo 'Running Selenium Tests with pytest'
 
-        bat 'python --version'
-        bat 'python -m pip --version'
-
         bat 'python -m pip install -r requirements.txt'
+        bat 'start /B python app.py'
+        bat 'ping 127.0.0.1 -n 5 > nul''
 
-        bat 'python -m pytest'
+        bat 'python -m pytest -v'
     }
 }
 
